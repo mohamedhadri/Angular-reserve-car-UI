@@ -1,0 +1,411 @@
+ 
+ 
+
+ <!-- <form  [formGroup]="addCar" (ngSubmit)="saveData()" class= "  col-11 
+ md-col-12 d-flex flex-column justify-content-center align-items-center"  >
+	 
+	<div class="container lg-col-12 col-6 d-flex flex-column justify-content-center align-items-center">
+		
+		<div class="card-container col-10 mb-3">
+			 
+			<select name="clientCar" formControlName="clientCar" class="form-select" placeholder="Category" [(ngModel)]="selectedCar" (change)="changeCar($event)" name="category">
+				<option>Category</option>
+				<option *ngFor="let car of cars">{{car.name}}</option>
+			</select>
+		</div>
+	
+		<div class="card-container col-10 mb-3">
+			 
+			<select   name="clientCarModel" formControlName="clientCarModel" class="form-select" placeholder="State" (change)="changeModel($event)">
+				<option>Select your Car</option>
+				<option *ngFor="let model of models">{{model}}</option>
+			</select>
+			<div class=" alert alert-danger ">Choose Your  Car!</div>
+
+			
+		</div>
+	
+	
+
+		<div class="date-time-container d-flex col-10 mb-3">
+
+			<div class="card-container col-6">
+			 
+				<select name="pickup" formControlName="pickup" class="form-select w-75" placeholder="drop">
+					<option>PICKUP</option>
+					<option *ngFor="let pickup of pickups">{{pickup}}</option>
+				</select>
+				<div class=" alert alert-danger w-75">Choose Pickup branch!</div>
+			</div>
+
+			<div class="input-group">
+				<input name="pickupDate" formControlName="pickupDate" type="date" class="form-control inpt" >
+				<input name="pickupTime" formControlName="pickupTime" type="time" class="form-control inpt" >
+			  </div>
+
+		</div>
+	
+	
+		<div class="date-time-container d-flex col-10 mb-3">
+
+			<div class="card-container col-6">
+			 
+				<select name="dropof" formControlName="dropof" class="form-select w-75" placeholder="drop">
+					<option>DROPOFF</option>
+					<option *ngFor="let drop of dropoff">{{drop}}</option>
+				</select>
+			</div>
+
+			<div class="input-group">
+				<input name="dropofpDate" formControlName="dropofDate" type="date" class="form-control inpt" >
+				<input name="dropofDate" formControlName="dropofDate" type="time" class="form-control inpt" >
+			  </div>
+
+		</div>
+	
+	
+
+	<div class="inputs-container col-10">
+
+		<div class="input-group  mb-3">
+			<div class="form-group col-12 ">
+			<input name="clientName" formControlName="clientName" required type="text" class="form-control rounded" 
+			aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Your name">
+			<div class=" alert alert-danger">Your Name is required!</div>
+		</div>
+		  </div>
+	
+		  <div class="input-group mb-3">
+			<div class="form-group col-12 ">
+			<input name="clientEmail" formControlName="clientEmail" required type="email" class="form-control rounded" 
+			aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Email address" >
+			<div class=" alert alert-danger" >Email Address is required!</div>
+		</div>
+		  </div>
+	
+		  <div class="input-group col-11 mb-3">
+			<div class="form-group col-12 ">
+			<input  name="clientNumber" formControlName="clientNumber" required type="tel" class="form-control" 
+			aria-label="Default"  placeholder="Phone number">
+			<div class=" alert alert-danger"  >Phone Number is required!</div>
+			</div>
+	      </div>
+
+		  
+
+	</div>
+
+	  <button type="submit" class="btn btn-warning text-light col-6">CONFIRM CAR BOOKING</button>
+
+	  
+ 
+	
+	</div>
+
+</form> -->
+	
+
+
+
+
+
+
+
+
+ <form  [formGroup]="newcarform" (ngSubmit)="saveData()" class= "  col-11 
+ md-col-12 d-flex flex-column justify-content-center align-items-center"novalidate  >
+	 
+	<div class="container lg-col-12 col-6 d-flex flex-column justify-content-center align-items-center">
+		
+		<div class="card-container col-10 mb-3">
+			 
+			<select name="clientCar" formControlName="clientCar" class="form-select" placeholder="Category" [(ngModel)]="selectedCar" (change)="changeCar($event)"  >
+				<option>Category</option>
+				<option *ngFor="let car of cars">{{car.name}}</option>
+			</select>
+
+			<div *ngIf="newcarform.controls['clientCar'].invalid &&
+			(newcarform.controls['clientCar'].dirty || newcarform.controls['clientCar'].touched)" 
+			class="alert alert-danger">
+				<div *ngIf="newcarform.controls['clientCar'].errors.required">
+				  Category is required.
+				</div>
+			</div>
+		</div>
+	
+		<div class="card-container col-10 mb-3">
+			 
+			<select   name="clientCarModel" formControlName="clientCarModel" 
+			class="form-select"   (change)="changeModel($event)"  >
+			<option value="" disabled selected hidden>Choose a model</option>
+				<option *ngFor="let model of models">{{model}}</option>
+			</select>
+
+			<div *ngIf="newcarform.controls['clientCarModel'].invalid &&
+			(newcarform.controls['clientCarModel'].dirty || newcarform.controls['clientCarModel'].touched)" 
+			class="alert alert-danger">
+				<div *ngIf="newcarform.controls['clientCarModel'].errors.required">
+				  Select Car is required.
+				</div>
+			</div>
+			 
+
+
+			
+		</div>
+	
+	
+
+		<div class="date-time-container d-flex col-10 mb-3">
+
+			<div class="card-container col-6">
+			 
+				<select name="pickup" formControlName="pickup" class="form-select w-75" placeholder="drop">
+					<option value="" disabled selected hidden> Pickup </option>
+					<option *ngFor="let pickup of pickups">{{pickup}}</option>
+
+				</select>
+			 
+			</div>
+			<div *ngIf="newcarform.controls['pickup'].invalid &&
+			(newcarform.controls['pickup'].dirty || newcarform.controls['pickup'].touched)" 
+			class="alert alert-danger">
+				<div *ngIf="newcarform.controls['pickup'].errors.required">
+				  Select pickup place is required.
+				</div>
+			</div>
+
+			<div class="input-group">
+				<input name="pickupDate" formControlName="pickupDate" type="date" class="form-control inpt" >
+				<input name="pickupTime"  type="time" class="form-control inpt" >
+
+				<div *ngIf="newcarform.controls['pickupDate'].invalid &&
+				(newcarform.controls['pickupDate'].dirty || newcarform.controls['pickupDate'].touched)" 
+				class="alert alert-danger">
+					<div *ngIf="newcarform.controls['pickupDate'].errors.required">
+					  Date is required.
+					</div>
+				</div>
+				
+			  </div>
+
+		</div>
+	
+	
+		<div class="date-time-container d-flex col-10 mb-3">
+
+			<div class="card-container col-6">
+			 
+				<select name="dropof" formControlName="dropof" class="form-select w-75" placeholder="drop">
+					<option value="" disabled selected hidden>Drop Off</option>
+					<option *ngFor="let drop of dropoff">{{drop}}</option>
+				</select>
+
+				
+			</div>
+			<div *ngIf="newcarform.controls['dropof'].invalid &&
+				(newcarform.controls['dropof'].dirty || newcarform.controls['dropof'].touched)" 
+				class="alert alert-danger">
+					<div *ngIf="newcarform.controls['dropof'].errors.required">
+					  dropof is required.
+					</div>
+				</div>
+
+			<div class="input-group">
+				<input name="dropofpDate" formControlName="dropofDate" type="date" class="form-control inpt" >
+				<input name="dropofDate"   type="time" class="form-control inpt" >
+			  </div>
+
+			  <div *ngIf="newcarform.controls['dropofDate'].invalid &&
+			  (newcarform.controls['dropofDate'].dirty || newcarform.controls['dropofDate'].touched)" 
+			  class="alert alert-danger">
+				  <div *ngIf="newcarform.controls['dropofDate'].errors.required">
+					dropof date is required.
+				  </div>
+			  </div>
+
+		</div>
+	
+	
+
+
+	<div class="inputs-container col-10">
+
+		<div class="   mb-3">
+			<div class="form-group col-12 ">
+			<input name="clientName" formControlName="clientName" required type="text" class="form-control rounded" 
+			aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Your name">
+			 
+		</div>
+		  </div>
+
+		  <div *ngIf="newcarform.controls['clientName'].invalid &&
+		  (newcarform.controls['clientName'].dirty || newcarform.controls['clientName'].touched)" 
+		  class="alert alert-danger">
+			  <div *ngIf="newcarform.controls['clientName'].errors.required">
+				Name is required.
+			  </div>
+		  </div>
+	
+
+
+		  <div class=" mb-3">
+			<div class="form-group col-12 ">
+			<input email="true" name="clientEmail" formControlName="clientEmail" required type="email" class="form-control rounded" 
+			aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Email address" >
+			 
+		</div>
+		  </div>
+		  <div *ngIf="newcarform.controls['clientEmail'].invalid &&
+		  (newcarform.controls['clientEmail'].dirty || newcarform.controls['clientEmail'].touched)" 
+		  class="alert alert-danger">
+			  <div *ngIf="newcarform.controls['clientEmail'].errors.required">
+				Email is required.
+			  </div>
+		  </div>
+	
+
+		  <div class="    mb-3">
+			<div class="form-group col-12 ">
+			<input  name="clientNumber" 
+			formControlName="clientNumber"   type="tel" class="form-control" 
+			aria-label="Default"  placeholder="Phone number">
+ 
+			</div>
+	      </div>
+		  <div *ngIf="newcarform.controls['clientNumber'].invalid &&
+		  (newcarform.controls['clientNumber'].dirty || newcarform.controls['clientNumber'].touched)" 
+		  class="alert alert-danger">
+			  <div *ngIf="newcarform.controls['clientNumber'].errors.required">
+				Number is required.
+			  </div>
+		  </div>
+
+
+		  
+
+	</div>
+
+	  <button  type="submit" [disabled]="newcarform.pristine || newcarform.invalid" 
+	   class="btn btn-warning col-5"> 
+	     CONFIRM CAR BOOKING
+
+	  </button>
+
+	  
+ 
+	
+	</div>
+
+</form>
+
+
+
+<!-- <p>Form value: {{ newcarform.value | json }}</p>
+  <p>Form status: {{ newcarform.status | json }}</p> -->
+
+
+  
+
+  <div *ngIf="!newcarform.invalid"  class="container">
+	<div class="text-center">
+		 
+	</div>
+	<div class="tab-content wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+		<div role="tabpanel" class="tab-pane fade show active" id="yearly">
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4 mb-30">
+					<div class="price-item text-center">
+						<div class="price-top">
+						 
+							<h2 class="mb-0">  {{ newcarform.value.clientCar }}</h2>
+						 
+						</div>
+						<div class="price-content">
+							<ul class="border-bottom mb-30 mt-md-4 pb-3 text-left">
+								<li>
+									<i class="zmdi zmdi-check mr-2"></i>
+									<span class="text-primary c-black">{{ newcarform.value.clientCarModel }}</span>
+								</li>
+								<li>
+									<i class="zmdi zmdi-check mr-2"></i>
+									<span class="text-primary c-black">{{ newcarform.value.pickup }}</span>
+								</li>
+								<li>
+									<i class="zmdi zmdi-check mr-2"></i>
+									<span class="text-primary c-black">{{ newcarform.value.pickupDate }}</span>
+								</li>
+								<li>
+									<i class="zmdi zmdi-close mr-2"></i>
+									<span class="text-primary">{{ newcarform.value.dropof }}</span>
+								</li>
+								<li>
+									<i class="zmdi zmdi-close mr-2"></i>
+									<span class="text-primary"> {{ newcarform.value.dropofDate }}</span>
+								</li>
+								<li>
+									<i class="zmdi zmdi-close mr-2"></i>
+									<span class="text-primary">{{ newcarform.value.clientName}}</span>
+								</li>
+								<li>
+									<i class="zmdi zmdi-close mr-2"></i>
+									<span class="text-primary">{{ newcarform.value.clientNumber}}</span>
+								</li>
+							</ul>
+							<a href="#" class="btn btn-custom">Buy now</a>
+						</div>
+					</div>
+				</div>
+			 
+			 
+			</div>
+		</div>
+		 
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+ 	 
+
+ 
+
+	
+<router-outlet></router-outlet>

@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+.container{
+    background-color: rgba(1, 7, 44, 0.856);
+    padding:5% 0%;
+    margin-bottom: 1%;
+     
+}
+
+.inpt{
+    height: 36px;
+    align-items: center;
+    vertical-align: middle;
+    margin: auto;
+}
+.form-group{
+    width: 100%;
+}

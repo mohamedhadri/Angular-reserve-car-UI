@@ -1,0 +1,42 @@
+[
+    { 
+    "carId": "1",
+     "name": "Renault",
+     "models": ["Captur", "Clio", "Clio Grandtour", "Espace", "Express", "Fluence", "Grand Espace", "Grand Modus"],
+     "pickup":["Istanbul İstinye","Istanbul Fatih Historia AVM","Gaziantep Havalimani","Gaziantep Şehir"],
+     "dropoff":["Istanbul İstinye","Istanbul Fatih Historia AVM","Gaziantep Havalimani","Gaziantep Şehir"]
+    }  ,     
+
+    {
+        "carId": "2",
+         "name": "Dacia",
+        "models": ["Dokker", "Duster", "Lodgy", "Logan", "Logan MCV", "Logan Van", "Sandero", "Solenza"],
+        "pickup":["Istanbul Park ","Istanbul Fatih Historia AVM"],
+        "dropoff":["Istanbul Park","Istanbul Taksim","Istanbul Fatih Historia AVM"]
+    },
+        
+
+    {
+        "carId": "3",
+         "name": "Opel",
+         "models":  ["Agila", "Ampera", "Antara", "Astra", "Astra cabrio", "Astra caravan"],
+         "pickup":["Gaziantep Havalimani","Gaziantep Şehir"],
+         "dropoff":["Gaziantep Havalimani","Gaziantep Şehir"]
+    },
+
+    { 
+        "carId": "4",
+        "name": "Ford", 
+        "models":["Aerostar", "B-Max", "C-Max", "Cortina", "Cougar", "Edge", "Escort", "Escort Cabrio", "Escort kombi", "Explorer"],
+        "pickup":["Istanbul İstinye","Istanbul Fatih Historia AVM","Gaziantep Havalimani","Gaziantep Şehir"],
+        "dropoff":["Istanbul İstinye","Istanbul Fatih Historia AVM","Gaziantep Havalimani","Gaziantep Şehir"]
+     },
+    
+    {
+        "carId": "5",
+         "name": "BMW",
+         "models": ["i3", "i8", "M3", "M4", "M5", "M6", "Rad 1", "Rad 1 Cabrio", "Rad 1 Coupé", "Rad 2", "Rad 2 Active Tourer"],
+         "pickup":["Istanbul İstinye","Istanbul Fatih Historia AVM","Gaziantep Havalimani","Gaziantep Şehir"],
+         "dropoff":["Istanbul İstinye","Istanbul Fatih Historia AVM","Gaziantep Havalimani","Gaziantep Şehir"]}
+]
+
